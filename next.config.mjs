@@ -2,21 +2,26 @@ import {
   PHASE_DEVELOPMENT_SERVER,
   PHASE_PRODUCTION_BUILD,
 } from 'next/constants.js';
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 
 const environment = process.env.NODE_ENV;
+const prefixPath = '';
 
 console.log('Loading nextConfig at:', environment, new Date().toISOString());
 
 const nextConfig = {
-  // basePath: '/play',
+  productionBrowserSourceMaps: true,
+  basePath: prefixPath,
   output: 'standalone',
   swcMinify: true,
-  // assetPrefix: '/play',
-  // publicRuntimeConfig: {
-  //   SERVICE_PATH: '/play',
-  // },
+  assetPrefix: prefixPath,
+  publicRuntimeConfig: {
+    SERVICE_PATH: prefixPath,
+  },
 
   reactStrictMode: false,
   compiler: {
@@ -25,7 +30,7 @@ const nextConfig = {
     removeConsole: false,
   },
   images: {
-    path: '/play/_next/image',
+    path: prefixPath + '/_next/image',
     loader: 'default',
     remotePatterns: [
       {
@@ -52,7 +57,7 @@ const nextConfigFunction = async (phase) => {
   return nextConfig;
 };
 
-export default nextConfigFunction;
+export default withNextIntl(nextConfigFunction);
 
 // const withPWA = withPWAInit({
 //   dest: 'public',
