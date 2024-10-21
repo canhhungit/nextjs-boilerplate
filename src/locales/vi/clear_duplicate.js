@@ -1,20 +1,20 @@
-const fs = require('fs')
-const path = require('path')
+const fs = require('fs');
+const path = require('path');
 
 // Define the path to the .tsx file
-const tsxFilePath = path.join(__dirname, 'translation.json')
-console.log('tsxFilePath', tsxFilePath)
+const tsxFilePath = path.join(__dirname, 'translation.json');
+console.log('tsxFilePath', tsxFilePath);
 
 // Read the JSON file
 fs.readFile(tsxFilePath, 'utf8', (err, data) => {
   if (err) {
-    console.error('Error reading file:', err)
-    return
+    console.error('Error reading file:', err);
+    return;
   }
 
   try {
     // Parse the JSON data
-    const jsonData = JSON.parse(data)
+    const jsonData = JSON.parse(data);
 
     // Remove duplicate lines and sort keys alphabetically
     const uniqueData = Object.keys(jsonData)
@@ -22,11 +22,11 @@ fs.readFile(tsxFilePath, 'utf8', (err, data) => {
       .reduce((acc, key) => {
         // eslint-disable-next-line no-prototype-builtins
         if (!acc.hasOwnProperty(key)) {
-          acc[key] = jsonData[key]
+          acc[key] = jsonData[key];
         }
-        return acc
-      }, {})
-    console.log('uniqueData', uniqueData)
+        return acc;
+      }, {});
+    console.log('uniqueData', uniqueData);
 
     // Write the cleaned and sorted data back to the file
     fs.writeFile(
@@ -35,13 +35,13 @@ fs.readFile(tsxFilePath, 'utf8', (err, data) => {
       'utf8',
       (err) => {
         if (err) {
-          console.error('Error writing file:', err)
-          return
+          console.error('Error writing file:', err);
+          return;
         }
-        console.log('File has been cleaned, sorted, and saved.')
+        console.log('File has been cleaned, sorted, and saved.');
       },
-    )
+    );
   } catch (parseErr) {
-    console.error('Error parsing JSON:', parseErr)
+    console.error('Error parsing JSON:', parseErr);
   }
-})
+});

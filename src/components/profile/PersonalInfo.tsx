@@ -5,26 +5,26 @@ interface PersonalInfoData {
   profession: string;
 }
 // Hàm giả lập lấy dữ liệu với setTimeout
-const fetchPersonalInfo = (): PersonalInfoData => {
-  // return new Promise((resolve) => {
-  //   setTimeout(() => {
-  //     resolve({
-  //       name: 'Nguyễn Văn A',
-  //       age: 30,
-  //       profession: 'Kỹ sư phần mềm',
-  //     });
-  //   }, 2000); // 2 giây
-  // });
-  return {
-    name: 'Nguyễn Văn A',
-    age: 30,
-    profession: 'Kỹ sư phần mềm',
-  };
+const fetchPersonalInfo = (): Promise<PersonalInfoData> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({
+        name: 'Nguyễn Văn A',
+        age: 30,
+        profession: 'Kỹ sư phần mềm',
+      });
+    }, 2000); // 2 giây
+  });
+  // return {
+  //   name: "Nguyễn Văn A",
+  //   age: 30,
+  //   profession: "Kỹ sư phần mềm",
+  // };
 };
 
 // Server Component
-export default   function PersonalInfo() {
-  const data =   fetchPersonalInfo();
+export default async function PersonalInfo() {
+  const data = await fetchPersonalInfo();
 
   return (
     <div>

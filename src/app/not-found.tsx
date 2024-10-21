@@ -2,7 +2,7 @@
 
 // import {useEffect} from 'react'
 
-export default function NotFound() { 
+export default function NotFound() {
   return (
     <div>
       <div

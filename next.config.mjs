@@ -1,15 +1,15 @@
 import {
   PHASE_DEVELOPMENT_SERVER,
   PHASE_PRODUCTION_BUILD,
-} from 'next/constants.js' 
+} from 'next/constants.js';
 
 /** @type {import('next').NextConfig} */
 
-const environment = process.env.NODE_ENV
+const environment = process.env.NODE_ENV;
 
-console.log('Loading nextConfig at:', environment, new Date().toISOString())
+console.log('Loading nextConfig at:', environment, new Date().toISOString());
 
-const nextConfig = { 
+const nextConfig = {
   // basePath: '/play',
   output: 'standalone',
   swcMinify: true,
@@ -35,7 +35,7 @@ const nextConfig = {
       },
     ],
   },
-}
+};
 const nextConfigFunction = async (phase) => {
   // if (phase === PHASE_DEVELOPMENT_SERVER || phase === PHASE_PRODUCTION_BUILD) {
   //   const withPWA = (await import('@ducanh2912/next-pwa')).default({
@@ -49,10 +49,10 @@ const nextConfigFunction = async (phase) => {
   //   })
   //   return withPWA(nextConfig)
   // }
-  return nextConfig
-}
+  return nextConfig;
+};
 
-export default nextConfigFunction
+export default nextConfigFunction;
 
 // const withPWA = withPWAInit({
 //   dest: 'public',
