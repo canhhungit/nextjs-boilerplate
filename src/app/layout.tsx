@@ -14,11 +14,8 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="My App" />
         <title>My App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="My App" />
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
