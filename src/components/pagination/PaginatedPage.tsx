@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+//https://github1s.com/vercel/examples/blob/main/solutions/pagination-with-ssg/pages/category/index.tsx
+
 import React from 'react';
 // import { Text } from '@vercel/examples-ui';
 import Pagination from './Pagination';
