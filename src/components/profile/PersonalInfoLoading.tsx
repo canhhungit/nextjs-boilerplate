@@ -2,9 +2,5 @@
 import React from 'react';
 
 export default function PersonalInfoLoading() {
-  return (
-    <div className="loading-container">
-      <p>Đang tải thông tin cá nhân...</p>
-    </div>
-  );
+  return <div className="loading-container">Đang tải thông tin cá nhân...</div>;
 }

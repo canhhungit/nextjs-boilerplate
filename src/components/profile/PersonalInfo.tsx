@@ -15,11 +15,6 @@ const fetchPersonalInfo = (): Promise<PersonalInfoData> => {
       });
     }, 2000); // 2 giây
   });
-  // return {
-  //   name: "Nguyễn Văn A",
-  //   age: 30,
-  //   profession: "Kỹ sư phần mềm",
-  // };
 };
 
 // Server Component

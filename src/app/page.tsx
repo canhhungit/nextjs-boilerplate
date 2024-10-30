@@ -1,5 +1,6 @@
 import PersonalInfo from '@/components/profile/PersonalInfo';
 import PersonalInfoLoading from '@/components/profile/PersonalInfoLoading';
+import CheckPage from '@/components/rewrire/Check';
 import Image from 'next/image';
 import { Suspense } from 'react';
 import React from 'react';
@@ -22,6 +23,7 @@ export default function Home() {
         />
         {t('welcome')}
         <div>
+          <CheckPage />
           <Suspense fallback={<PersonalInfoLoading />}>
             <PersonalInfo />
           </Suspense>
